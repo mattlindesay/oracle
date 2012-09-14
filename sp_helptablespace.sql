@@ -4,7 +4,7 @@
  * www.oraclebytes.com
  */
 
-set lines 1000 pages 1000
+set lines 1000 pages 1000 
 
 column "tablespace_name" format a30
 column "size_mb"         format 99,999,999
@@ -34,4 +34,3 @@ select b.tablespace_name      as "tablespace_name",
        group by tablespace_name ) b
   where a.tablespace_name(+)=b.tablespace_name
   order by b.tablespace_name;
-
