@@ -19,8 +19,15 @@ Change to the installation directory before starting sqlplus.
 $ cd ~/oracle
 $ sqlplus /
 ```
-To execute a script, use the @ symbol, passing any parameters after the script name
+To execute a script, use the @ symbol, passing any parameters after the script name. As sqlplus doesn't allow for optional parameters, % is used for this purpose.
 
+## @sp_syntax
+To get a list of all available scripts:
+```
+SQL:myserver1:(MYDB1):PRIMARY> @sp_syntax %
+```
+
+To check the syntax for a particular script:
 ```
 SQL:myserver1:(MYDB1):PRIMARY> @sp_syntax sp_help
 Syntax help
@@ -29,6 +36,7 @@ Syntax help
   @sp_help schema { object_name | % }
 ```
 
+## @sp_help
 ```
 SQL:myserver1:(MYDB1):PRIMARY> @sp_help HR %
 object_name                    object_type
@@ -47,6 +55,18 @@ EMPLOYEES_SEQ                  SEQUENCE
 LOCATIONS_SEQ                  SEQUENCE
 
 ```
+
+Alternate Usage
+===============
+Sometimes it's not convenient to cd to the directory where the scripts are located. For this reason you could set up an environment variable as follows:
+
+```
+$ export s=~/oracle
+$ sqlplus /
+SQL:myserver1:(MYDB1):PRIMARY> @$s/sp_syntax %
+```
+
+It's a bit ugly, but does the job (that's what she said :-)).
 
 Other Resources
 ===============
