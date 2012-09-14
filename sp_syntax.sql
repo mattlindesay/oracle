@@ -28,17 +28,22 @@ begin
         dbms_output.put_line(chr(32)||chr(32)||'usage: @sp_helpfrag schema { table_name | % }');
 
     elsif '&&1' = '@sp_helpdb' then
-        dbms_output.put_line('@sp_helpdb - Reports on basic information about the database, including db size')
+        dbms_output.put_line('@sp_helpdb - Reports on basic information about the database, including db size');
         dbms_output.put_line(chr(32)||chr(32)||'usage: @sp_helpdb');
 
     elsif '&&1' = '@sp_helpasm' then
         dbms_output.put_line('@sp_helpasm - Reports on asm disk utilisation');
         dbms_output.put_line(chr(32)||chr(32)||'usage: @sp_helpasm');
 
+    elsif '&&1' = '@sp_helpdatafile' then
+        dbms_output.put_line('@sp_helpdatafile - Reports on datafile utilisation');
+        dbms_output.put_line(chr(32)||chr(32)||'usage: @sp_helpdatafile { tablespace_name | % }');
+
     else
         dbms_output.put_line('@sp_syntax         - Reports syntax of sp commands or list of available');
         dbms_output.put_line('@sp_helpasm        - Reports on asm disk utilisation');
-        dbms_output.put_line('@sp_helpdb         - Reports on basic information about the database, including db size')
+        dbms_output.put_line('@sp_helpdatafile   - Reports on datafile utilisation');
+        dbms_output.put_line('@sp_helpdb         - Reports on basic information about the database, including db size');
         dbms_output.put_line('@sp_helpfrag       - Reports on fragmented tables to help identify wasted space');
         dbms_output.put_line('@sp_helptablespace - Reports information about all tablespaces');
         dbms_output.put_line('@sp_who            - Reports information about current connections to the database');
