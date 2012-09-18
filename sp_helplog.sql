@@ -17,6 +17,7 @@ column dbid                   format a10
 column status                 format a10
 column first_change#          format 999999999999990
 column first_time             format a17
+column standby_log_ddl        format a80
 
 select group#           as "group#",
        thread#          as "thread#",
@@ -52,5 +53,12 @@ select group#                 as "group#",
 	   is_recovery_dest_file  as "is_recovery_dest_file"
   from v$logfile;
 
+select 'alter database add standby logfile group ' ||
+       sl.group# ||
+       ' (' || substr(l.member, 0, instr(l.member, '/')-1) || ')' ||
+       ' size ' ||
+       bytes/1024/1024 || 'M;' as "standby_log_ddl"
+  from v$standby_log sl join v$logfile l
+    on sl.group# = l.group#;
 
 
