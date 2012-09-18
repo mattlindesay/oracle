@@ -19,6 +19,10 @@ begin
         dbms_output.put_line('@sp_helptablespace - Reports information about all tablespaces');
         dbms_output.put_line(chr(32)||chr(32)||'usage: @sp_helptablespace');
 
+    elsif '&&1' = '@sp_helplog' then
+        dbms_output.put_line('@sp_helplog - Reports information on redo logs and standby logs');
+        dbms_output.put_line(chr(32)||chr(32)||'usage: @sp_helplog');
+
     elsif '&&1' = '@sp_who' then
         dbms_output.put_line('@sp_who - Reports information about current connections to the database');
         dbms_output.put_line(chr(32)||chr(32)||'usage: @sp_who');
@@ -49,6 +53,7 @@ begin
         dbms_output.put_line('@sp_helpdatafile   - Reports on datafile utilisation');
         dbms_output.put_line('@sp_helpdb         - Reports on basic information about the database, including db size');
         dbms_output.put_line('@sp_helpfrag       - Reports on fragmented tables to help identify wasted space');
+        dbms_output.put_line('@sp_helplog        - Reports information on redo logs and standby logs');
         dbms_output.put_line('@sp_helptablespace - Reports information about all tablespaces');
         dbms_output.put_line('@sp_helpuser       - Reports on users');
         dbms_output.put_line('@sp_who            - Reports information about current connections to the database');
