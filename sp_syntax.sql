@@ -17,7 +17,8 @@ begin
 
     elsif '&&1' = '@sp_helptablespace' then
         dbms_output.put_line('@sp_helptablespace - Reports information about all tablespaces');
-        dbms_output.put_line(chr(32)||chr(32)||'usage: @sp_helptablespace');
+        dbms_output.put_line(chr(32)||chr(32)||'usage: @sp_helptablespace %                ; Report space usage of tablespaces');
+        dbms_output.put_line(chr(32)||chr(32)||'usage: @sp_helptablespace tablespace_name  ; Report datafile usage and other details for a tablespace');
 
     elsif '&&1' = '@sp_helplog' then
         dbms_output.put_line('@sp_helplog - Reports information on redo logs and standby logs');
