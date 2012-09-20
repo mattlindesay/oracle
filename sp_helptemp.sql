@@ -39,12 +39,12 @@ select ss.tablespace_name                                            as "tablesp
 select P.spid                                        as "spid",
        s.sid                                         as "sid",
        s.serial#                                     as "serial",
-	   s.username                                    as "username",
-	   s.osuser                                      as "osuser",
-	   s.module                                      as "module",
+       s.username                                    as "username",
+       s.osuser                                      as "osuser",
+       s.module                                      as "module",
        p.program                                     as "program",
-	   sum(su.blocks) * ts.block_size / 1024 / 1024  as "used_mb",
-	   su.tablespace                                 as "tablespace_name",
+       sum(su.blocks) * ts.block_size / 1024 / 1024  as "used_mb",
+       su.tablespace                                 as "tablespace_name",
        count(*) statements
   from v$sort_usage su, v$session s, dba_tablespaces ts, v$process P
   where su.session_addr = s.saddr
