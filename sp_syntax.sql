@@ -48,6 +48,10 @@ begin
         dbms_output.put_line('@sp_helpuser - Reports on users');
         dbms_output.put_line(chr(32)||chr(32)||'usage: @sp_helpuser');
 
+    elsif '&&1' = '@sp_helptemp' then
+        dbms_output.put_line('@sp_helptemp - Reports on temporary tablespace usage');
+        dbms_output.put_line(chr(32)||chr(32)||'usage: @sp_helptemp');
+
     else
         dbms_output.put_line('@sp_syntax         - Reports syntax of sp commands or list of available');
         dbms_output.put_line('@sp_helpasm        - Reports on asm disk utilisation');
@@ -56,6 +60,7 @@ begin
         dbms_output.put_line('@sp_helpfrag       - Reports on fragmented tables to help identify wasted space');
         dbms_output.put_line('@sp_helplog        - Reports information on redo logs and standby logs');
         dbms_output.put_line('@sp_helptablespace - Reports information about all tablespaces');
+        dbms_output.put_line('@sp_helptemp       - Reports on temporary tablespace usage');
         dbms_output.put_line('@sp_helpuser       - Reports on users');
         dbms_output.put_line('@sp_who            - Reports information about current connections to the database');
     end if;
