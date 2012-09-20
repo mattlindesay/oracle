@@ -36,7 +36,7 @@ select ss.tablespace_name                                            as "tablesp
   group by ss.tablespace_name, t.mb_total;
 
 
-select P.spid                                        as "spid",
+select p.spid                                        as "spid",
        s.sid                                         as "sid",
        s.serial#                                     as "serial",
        s.username                                    as "username",
@@ -46,7 +46,7 @@ select P.spid                                        as "spid",
        sum(su.blocks) * ts.block_size / 1024 / 1024  as "used_mb",
        su.tablespace                                 as "tablespace_name",
        count(*) statements
-  from v$sort_usage su, v$session s, dba_tablespaces ts, v$process P
+  from v$sort_usage su, v$session s, dba_tablespaces ts, v$process p
   where su.session_addr = s.saddr
     and s.paddr         = p.addr
     and su.tablespace   = ts.tablespace_name
