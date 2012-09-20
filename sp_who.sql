@@ -4,7 +4,7 @@
  * www.oraclebytes.com
  */
 
-set lines 10000 pages 10000 verify off feedback off
+set lines 1000 pages 1000 verify off feedback off
 
 column sid         format 9999
 column serial#     format 99999
@@ -35,4 +35,10 @@ select s.sid         as "sid",
         and (s.username = '&&1' or '&&1' = '%' or to_char(s.sid) = '&&1')
         and s.username != 'SID'
   order by 1,2,3;
+
+select v.sql_text as "sql_text"
+  from gv$session s 
+    join sys.v_$sql v 
+      on s.sql_id = v.sql_id
+        and to_char(s.sid) = '&&1';
 

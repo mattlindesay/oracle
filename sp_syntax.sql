@@ -25,7 +25,8 @@ begin
 
     elsif '&&1' = '@sp_who' then
         dbms_output.put_line('@sp_who - Reports information about current connections to the database');
-        dbms_output.put_line(chr(32)||chr(32)||'usage: @sp_who');
+        dbms_output.put_line(chr(32)||chr(32)||'usage: @sp_who %                          ; Report all current processes');
+        dbms_output.put_line(chr(32)||chr(32)||'usage: @sp_who sid                        ; Report details of sid');
 
     elsif '&&1' = '@sp_helpfrag' then
         dbms_output.put_line('@sp_helpfrag - Reports on fragmented tables to help identify wasted space');
