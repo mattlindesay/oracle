@@ -53,6 +53,10 @@ begin
         dbms_output.put_line('@sp_helptemp - Reports on temporary tablespace usage');
         dbms_output.put_line(chr(32)||chr(32)||'usage: @sp_helptemp');
 
+    elsif '&&1' = '@sp_helpundo' then
+        dbms_output.put_line('@sp_helpundo - Reports on undo tablespace usage');
+        dbms_output.put_line(chr(32)||chr(32)||'usage: @sp_helpundo');
+
     else
         dbms_output.put_line('@sp_syntax         - Reports syntax of sp commands or list of available');
         dbms_output.put_line('@sp_helpasm        - Reports on asm disk utilisation');
@@ -62,6 +66,7 @@ begin
         dbms_output.put_line('@sp_helplog        - Reports information on redo logs and standby logs');
         dbms_output.put_line('@sp_helptablespace - Reports information about all tablespaces');
         dbms_output.put_line('@sp_helptemp       - Reports on temporary tablespace usage');
+        dbms_output.put_line('@sp_helpundo       - Reports on undo tablespace usage');
         dbms_output.put_line('@sp_helpuser       - Reports on users');
         dbms_output.put_line('@sp_who            - Reports information about current connections to the database');
     end if;
